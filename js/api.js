@@ -97,3 +97,27 @@ export function normalizeOpenLibraryData(booksData) {
 }
 
 
+export async function searchBooks(query) {
+  let googleResults = [];
+
+  try {
+    const rawGoogleData = await getBooksFromGoogleBooks(query);
+    googleResults = normalizeBookData(rawGoogleData);
+  } catch (error) {
+    console.error("Google Books search failed, will try Open Library:", error);
+  }
+
+  if (googleResults.length > 0) {
+    return googleResults;
+  }
+
+  try {
+    const rawOpenLibraryData = await getBooksFromOpenLibrary(query);
+    const openLibraryResults = normalizeOpenLibraryData(rawOpenLibraryData);
+    return openLibraryResults;
+  } catch (error) {
+    console.error("Open Library search also failed:", error);
+    throw new Error("Unable to fetch books from either source. Please try again later.");
+  }
+}
+

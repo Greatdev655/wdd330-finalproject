@@ -72,14 +72,24 @@
         <button id="search-btn">Search</button>
       </form>
 
-      <div class="search-result-container">
+      <div class="search-result-container" id="search-result-container">
         <p id="state-message"></p>
         <!-- Populated using js -->
       </div>
 
       <dialog id="bookDetails">
-        <!-- populated using Js -->
+        <button id="modal-close-btn" class="close-btn"><i class="bi bi-x-square"></i></button>
+          <div class="content-box" id="content-box">
+            <img src="" alt="" id="modal-cover">
+            <h1 id="modal-title"></h1>
+            <p id="modal-author"></p>
+            <p id="modal-description"></p>
+            <span id="modal-pagecount"></span> 
+            <button id="modal-add-btn"> Add to Library </button>
+          </div>
       </dialog>
+
+
     </main>
 
     <footer id="site-footer">

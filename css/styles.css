@@ -99,7 +99,11 @@ button:hover{
   grid-column: 1 / -1;
   text-align: center;
 }
+/* error message state class */
 
+.error-message-state{
+  border: 1px solid rgb(218, 3, 3);
+}
 /* Responsive: stack the search form on narrow screens */
 
 @media (max-width: 600px) {
