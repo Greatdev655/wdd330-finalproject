@@ -1,99 +1,84 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A Book Tracker app that lets users search for books and track their reading habits using the Google Books and Open Library APIs."
-    />
-    <meta name="author" content="Ikechukwu Great (GreatDev)" />
-    <meta property="og:title" content="BookTracker" />
-    <meta
-      property="og:description"
-      content="Search for books and track your reading with Book Tracker."
-    />
-    <meta
-      property="og:image"
-      content="https://Greatdev655.github.io/wdd231/chamber/images/og-image.jpg"
-    />
-    <meta
-      property="og:url"
-      content="https://Greatdev655.github.io/wdd231/finalproject/index.html"
-    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kings&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A Book Tracker app that lets users search for books and track their reading habits using the Google Books and Open Library APIs." />
+  <meta name="author" content="Ikechukwu Great (GreatDev)" />
+  <meta property="og:title" content="BookTracker" />
+  <meta property="og:description" content="Search for books and track your reading with Book Tracker." />
+  <meta property="og:image" content="https://Greatdev655.github.io/wdd231/chamber/images/og-image.jpg" />
+  <meta property="og:url" content="https://Greatdev655.github.io/wdd231/finalproject/index.html" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kings&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="assets/images/favicon (2).ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kings&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap"
+    rel="stylesheet" />
 
-    <script type="module" src="js/header-footer.js"></script>
-    <script type="module" src="js/search.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kings&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/images/favicon (2).ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 
-    <title>Book Tracker : Home/search page</title>
-  </head>
-  <body>
-    <header id="site-header">
-      <!-- injected using js -->
-    </header>
+  <script type="module" src="js/header-footer.js"></script>
+  <script type="module" src="js/search.js"></script>
 
-    <main>
-      <h1>Find your next Read</h1>
-      <form action="" id="search-form">
-        <div class="form-group">
-          <i class="bi bi-search"></i>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search for a book...."
-            required
-          />
-        </div>
-        <button id="search-btn">Search</button>
-      </form>
+  <title>Book Tracker : Home/search page</title>
+</head>
 
-      <div class="search-result-container" id="search-result-container">
-        <p id="state-message"></p>
-        <!-- Populated using js -->
+<body>
+  <header id="site-header">
+    <!-- injected using js -->
+  </header>
+
+  <main>
+    <h1>Find your next Read</h1>
+    <form action="" id="search-form">
+      <div class="form-group">
+        <i class="bi bi-search"></i>
+        <input type="text" id="search-input" placeholder="Search for a book...." required />
       </div>
+      <button id="search-btn">Search</button>
+    </form>
 
-      <dialog id="bookDetails">
-        <button id="modal-close-btn" class="close-btn"><i class="bi bi-x-square"></i></button>
-          <div class="content-box" id="content-box">
-            <img src="" alt="" id="modal-cover">
-            <h1 id="modal-title"></h1>
-            <p id="modal-author"></p>
-            <p id="modal-description"></p>
-            <span id="modal-pagecount"></span> 
-            <button id="modal-add-btn"> Add to Library </button>
-          </div>
-      </dialog>
+    <div class="search-result-container" id="search-result-container">
+
+      <div class="state-message-container">
+        <p id="state-message"></p>
+      </div>
+      <!-- Populated using js -->
+    </div>
+
+    <dialog id="bookDetails">
+      <button id="modal-close-btn" class="close-btn"><i class="bi bi-x-square"></i></button>
+      <div class="content-box" id="content-box">
+        <img src="" alt="" id="modal-cover">
+        <h1 id="modal-title"></h1>
+        <p id="modal-author"></p>
+        <p id="modal-description"></p>
+        <span id="modal-pagecount"></span>
+        <button id="modal-add-btn"> Add to Library </button>
+      </div>
+    </dialog>
 
 
-    </main>
+  </main>
 
-    <footer id="site-footer">
-      <!-- injected using js -->
-    </footer>
-  </body>
+  <footer id="site-footer">
+    <!-- injected using js -->
+  </footer>
+</body>
+
 </html>

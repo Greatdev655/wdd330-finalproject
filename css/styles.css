@@ -87,23 +87,52 @@ button:hover{
 
 /* result container */
  
-.search-result-container {
+.search-result-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   width: 100%;
   padding: .75rem;
 }
- 
+
+.state-message-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
 #state-message {
-  grid-column: 1 / -1;
+  /* grid-column: 1 / -1; */
   text-align: center;
 }
 /* error message state class */
-
 .error-message-state{
   border: 1px solid rgb(218, 3, 3);
 }
+
+
+ .book-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .75rem 5%;
+  margin: 8px 4px;
+  background-color: #fff;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  width: 300px;
+ }
+
+ .book-card img{
+  width:60px;
+  height:60px;
+ }
+
+
+
 /* Responsive: stack the search form on narrow screens */
 
 @media (max-width: 600px) {
@@ -118,7 +147,11 @@ button:hover{
   button {
     width: 90%;
   }
+  .search-result-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem;
+  }
 }
-
-
-
