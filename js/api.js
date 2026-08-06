@@ -12,7 +12,6 @@ export async function getBooksFromGoogleBooks(searchQuery) {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Error fetching books from Google Books API:", error);
@@ -45,10 +44,9 @@ export function normalizeBookData(booksData) {
   });
 }
 
-
 // get books from Open Library API 
-export async function getBooksFromOpenLibrary(searchQuery){
-    try {
+export async function getBooksFromOpenLibrary(searchQuery) {
+  try {
     const params = new URLSearchParams({
       title: searchQuery,
     });
@@ -60,16 +58,14 @@ export async function getBooksFromOpenLibrary(searchQuery){
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Error fetching books from Open Library API:", error);
     throw error;
   }
-
 }
 
-// normalizing the data structure from open Library 
+// normalizing the data structure from Open Library 
 export function normalizeOpenLibraryData(booksData) {
   const docs = booksData?.docs ?? [];
 
@@ -96,7 +92,6 @@ export function normalizeOpenLibraryData(booksData) {
   });
 }
 
-
 export async function searchBooks(query) {
   let googleResults = [];
 
@@ -121,3 +116,55 @@ export async function searchBooks(query) {
   }
 }
 
+// Enrichment: looks up a single book on Open Library by title and
+// returns its work-level description, or null if none could be found.
+// This is a two-step lookup: search.json doesn't return descriptions,
+// so we take the first search match's work key and fetch the full
+// Works record to get the actual description text.
+export async function enrichBookDescription(book) {
+  try {
+    const params = new URLSearchParams({ title: book.title });
+    const searchUrl = `https://openlibrary.org/search.json?${params}`;
+    const searchResponse = await fetch(searchUrl);
+
+    if (!searchResponse.ok) {
+      throw new Error(`Request failed with status ${searchResponse.status}`);
+    }
+
+    const searchData = await searchResponse.json();
+    const firstResult = searchData?.docs?.[0];
+
+    if (!firstResult?.key) {
+      return null;
+    }
+
+    const workUrl = `https://openlibrary.org${firstResult.key}.json`;
+    const workResponse = await fetch(workUrl);
+
+    if (!workResponse.ok) {
+      throw new Error(`Request failed with status ${workResponse.status}`);
+    }
+
+    const workData = await workResponse.json();
+    const rawDescription = workData?.description;
+
+    if (!rawDescription) {
+      return null;
+    }
+
+    // Open Library returns description as either a plain string,
+    // or an object like { type: "/type/text", value: "..." }.
+    if (typeof rawDescription === "string") {
+      return rawDescription;
+    }
+
+    if (typeof rawDescription === "object" && rawDescription.value) {
+      return rawDescription.value;
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Error enriching book description from Open Library:", error);
+    return null;
+  }
+}

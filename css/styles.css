@@ -26,14 +26,14 @@ main {
   padding: 20px;
 }
 
-main h1{
+main h1 {
   font-family: var(--heading-font);
   color: var(--heading-color);
   font-size: 1.8rem;
   text-align: center;
 }
 
-form{
+form {
   width: 100%;
   display: flex;
   gap: 10px;
@@ -50,7 +50,6 @@ form{
   align-items: center;
   background: #fff;
   border-radius: 30px;
-  /* margin-right: 10px; */
 }
 
 .form-group input{
@@ -64,7 +63,6 @@ form{
   color: var(--body-text-color);
   text-align: left;
   font-family: var(--body-font);
-
 }
 
 button{
@@ -85,16 +83,6 @@ button:hover{
   color: var(--heading-color);
 }
 
-/* result container */
- 
-.search-result-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  width: 100%;
-  padding: .75rem;
-}
-
 .state-message-container{
   display: flex;
   justify-content: center;
@@ -104,34 +92,170 @@ button:hover{
 }
 
 #state-message {
-  /* grid-column: 1 / -1; */
   text-align: center;
 }
-/* error message state class */
+
 .error-message-state{
   border: 1px solid rgb(218, 3, 3);
 }
 
+/* result container */
 
- .book-card{
+.search-result-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:10px;
+  width: 100%;
+  padding: .75rem;
+}
+
+.book-card{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: .75rem 5%;
-  margin: 8px 4px;
+  margin: 8px;
   background-color: #fff;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
-  width: 300px;
+  width: 280px;
  }
 
- .book-card img{
-  width:60px;
-  height:60px;
+.book-card img{
+  width:100px;
+  height:150px;
+  margin-bottom: 15px;
+  box-shadow: 8px 15px 15px rgba(0, 0, 0, 0.1);
+ }
+
+ .book-card h3{
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 10px;
+ }
+.book-card p{
+  font-family: var(--body-font);
+  color: var(--body-text-color);
+  font-size: .85rem;
+  text-align: center;
+  margin-bottom: 10px;
+ }
+
+/* dialogs/ modals  */
+dialog{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: .75rem;
+  border-radius: 10px;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+ }
+
+ dialog .close-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+ }
+
+  dialog .close-btn i {
+    text-align: center;
+    font-size: .95rem;
+    font-weight: 600;
+  }
+
+  dialog .close-btn:hover {
+    color: var(--heading-color);
+    background: transparent;
+    font-weight: 900;
+  }
+
+  .content-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
+  }
+
+  .img-container{
+    height: 100%;
+    width: 50%;
+  }
+
+  .info-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+.modal-title{
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+ }
+
+ .modal-description{
+  font-family: var(--body-font);
+  color: var(--body-text-color);
+  font-size: .85rem;
+  text-align: left;
+  margin-bottom: 10px;
+ }
+
+.info-container p{
+  font-family: var(--body-font);
+  color: var(--body-text-color);
+  font-size: .85rem;
+  text-align: left;
+  margin-bottom: 10px;
+ }
+
+ .modal-pagecount{
+  font-family: var(--body-font);
+  color: var(--heading-color);
+  font-size: .85rem;
+  text-align: left;
+  margin-bottom: 25px;
+  font-weight: 900;
+ 
+ }
+
+ 
+
+
+.img-container img{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 15px;
+  box-shadow: 8px 15px 15px rgba(0, 0, 0, 0.1);
  }
 
 
+ ::backdrop{
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+ }
 
 /* Responsive: stack the search form on narrow screens */
 

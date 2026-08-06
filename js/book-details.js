@@ -1,3 +1,5 @@
+import { enrichBookDescription } from "./api.js";
+
 const bookDetailsModal = document.getElementById("bookDetails");
 const modalCover = document.getElementById("modal-cover");
 const modalTitle = document.getElementById("modal-title");
@@ -9,14 +11,13 @@ const modalCloseBtn = document.getElementById("modal-close-btn");
 
 let currentBook = null;
 
-export function openBookDetail(book) {
+export async function openBookDetail(book) {
   currentBook = book;
 
   modalCover.src = book.coverUrl || "assets/images/coverimageplaceholder.webp";
   modalCover.alt = book.title;
   modalTitle.textContent = book.title;
   modalAuthor.textContent = book.author;
-  modalDescription.textContent = book.description;
 
   if (book.pageCount === 0) {
     modalPageCount.hidden = true;
@@ -29,6 +30,37 @@ export function openBookDetail(book) {
   modalAddBtn.disabled = false;
 
   bookDetailsModal.showModal();
+
+
+  if (book.description) {
+    modalDescription.textContent = book.description;
+    return;
+  }
+
+  // Case 2: Open Library books never had a description to begin with,
+  // and enrichment doesn't apply to them — show the fallback directly.
+  if (book.source !== "google") {
+    modalDescription.textContent = "No description available.";
+    return;
+  }
+
+  modalDescription.textContent = "Loading description...";
+
+  const enrichedDescription = await enrichBookDescription(book);
+
+  // Guard: if the user closed this modal and opened a different book
+  // while this fetch was in flight, don't overwrite the wrong modal's text.
+  if (currentBook !== book) {
+    return;
+  }
+
+  if (enrichedDescription) {
+    book.description = enrichedDescription; // cache on the book object
+  } else {
+    book.description = "No description available.";
+  }
+
+  modalDescription.textContent = book.description;
 }
 
 modalCloseBtn.addEventListener("click", () => {
