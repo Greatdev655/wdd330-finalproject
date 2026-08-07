@@ -310,8 +310,23 @@ dialog .close-btn:hover {
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+#site-footer{
+  display: flex;
+  align-items: center;
+  font-family: var(--heading-font);
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--primary-accent);
+  backdrop-filter: blur(0px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+
 }
 
 
@@ -341,6 +356,7 @@ dialog .close-btn:hover {
 
   .hamburger-btn {
     display: block;
+    background: none;
   }
 
   .nav-links {
@@ -357,5 +373,113 @@ dialog .close-btn:hover {
 
   .nav-links.open {
     display: flex;
+    height: 100%;
   }
+
+  #site-header{
+    padding: .65rem;
+    justify-content: space-between ;
+    align-items:stretch;
+  }
+
+  .logo{
+    font-size: 1rem;
+  }
+  /* dialogs/ modals  */
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: .75rem;
+  border-radius: 10px;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+dialog .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+dialog .close-btn i {
+  text-align: center;
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+dialog .close-btn:hover {
+  color: var(--heading-color);
+  background: transparent;
+  font-weight: 900;
+}
+
+.content-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+  padding: .5rem;
+}
+
+.img-container {
+  height: 100%;
+  width: 50%;
+}
+
+.info-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modal-title {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.modal-description {
+  font-family: var(--body-font);
+  color: var(--body-text-color);
+  font-size: .85rem;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.info-container p {
+  font-family: var(--body-font);
+  color: var(--body-text-color);
+  font-size: .85rem;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.modal-pagecount {
+  font-family: var(--body-font);
+  color: var(--heading-color);
+  font-size: .85rem;
+  text-align: left;
+  margin-bottom: 25px;
+  font-weight: 900;
+
+}
+
 }
