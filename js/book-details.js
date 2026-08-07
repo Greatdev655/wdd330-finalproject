@@ -5,7 +5,7 @@ const modalCover = document.getElementById("modal-cover");
 const modalTitle = document.getElementById("modal-title");
 const modalAuthor = document.getElementById("modal-author");
 const modalDescription = document.getElementById("modal-description");
-const modalPageCount = document.getElementById("modal-pagecount");
+const modalPageCount = document.getElementById("modal-description");
 const modalAddBtn = document.getElementById("modal-add-btn");
 const modalCloseBtn = document.getElementById("modal-close-btn");
 
