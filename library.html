@@ -25,58 +25,26 @@
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/styles.css" />
 
-  <script type="module" src="js/header-footer.js"></script>b
+  <script type="module" src="js/header-footer.js"></script>
   <script type="module" src="js/search.js"></script>
 
-  <title>Book Tracker : Home/search page</title>
+  <title>Book Tracker : library page</title>
 </head>
 
 <body>
+
   <header id="site-header">
     <!-- injected using js -->
   </header>
 
   <main>
-    <h1>Find your next Read</h1>
-    <form action="" id="search-form">
-      <div class="form-group">
-        <i class="bi bi-search"></i>
-        <input type="text" id="search-input" placeholder="Search for a book...." required />
-      </div>
-      <button id="search-btn">Search</button>
-    </form>
 
-    <div class="state-message-container">
-      <p id="state-message"></p>
-    </div>
-
-    <div class="search-result-container" id="search-result-container">
-      <!-- Populated using js -->
-    </div>
-
-    <dialog id="bookDetails">
-      <button id="modal-close-btn" class="close-btn"><i class="bi bi-x-square"></i></button>
-      <div class="content-box" id="content-box">
-        <div class="img-container">
-          <img src="" alt="" id="modal-cover">
-        </div>
-
-        <div class="info-container">
-          <h1 id="modal-title" class="modal-title"></h1>
-          <p id="modal-author" class="modal-author"></p>
-          <p id="modal-description" class="modal-description"></p>
-          <p id="modal-pagecount" class="modal-pagecount"></p>
-          <button id="modal-add-btn"> Add to Library </button>
-        </div>
-
-      </div>
-
-    </dialog>
   </main>
 
   <footer id="site-footer">
     <!-- injected using js -->
   </footer>
+  
 </body>
 
 </html>

@@ -402,13 +402,16 @@ dialog .close-btn:hover {
 
   .nav-links {
     display: none;
+    width:100% ;
     position: absolute;
+    margin-bottom: 15px;
     top: 100%;
     right: 0;
     background-color: var(--warm-parchment);
     flex-direction: column;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
   }
 
   .nav-links.open {
@@ -418,8 +421,14 @@ dialog .close-btn:hover {
 
   #site-header {
     padding: .65rem;
-    justify-content: space-between;
-    align-items: stretch;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .hamburger-btn{
+    font-size: 1rem;
+    width: 50px;
+    background: transparent;
   }
 
   .logo {
@@ -431,5 +440,13 @@ dialog .close-btn:hover {
     height: auto;
     padding: 1rem;
     overflow-y: auto;
+  }
+
+  #site-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
   }
 }
