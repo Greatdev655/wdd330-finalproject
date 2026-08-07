@@ -8,7 +8,7 @@ const headerHTML = `
     <i class="bi bi-list"></i>
   </button>
   <nav class="nav-links">
-    <a href="index.html">Search</a>
+    <a href="index.html"><i class="bi bi-search"></i> Search </a>
     <a href="library.html">Library</a>
   </nav>
 `;
