@@ -450,4 +450,14 @@ dialog .close-btn:hover {
     justify-content: center;
     align-items: center;
   }
+
+  /* ------ library styles */
+
+  #filter-tabs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
 }

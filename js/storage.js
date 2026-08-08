@@ -1,6 +1,10 @@
+// storage.js
+// Handles all localStorage read/write/update/delete logic for the library array.
 
 const LIBRARY_KEY = "bookTrackerLibrary";
 
+// Private helper (not exported).
+// Reads the raw string from localStorage, parses it, and always returns a safe array.
 
 function readLibrary() {
   const raw = localStorage.getItem(LIBRARY_KEY);
@@ -17,7 +21,7 @@ function readLibrary() {
   }
 }
 
-// Private helper (not exported).
+
 // Takes a full array and saves it back to localStorage as a JSON string.
 function writeLibrary(library) {
   localStorage.setItem(LIBRARY_KEY, JSON.stringify(library));
@@ -40,6 +44,8 @@ export function saveBook(book) {
     return false;
   }
 
+  book.status = "reading";
+  book.dateAdded = new Date().toISOString().split("T")[0];
   book.undoUsed = false;
   library.push(book);
   writeLibrary(library);
