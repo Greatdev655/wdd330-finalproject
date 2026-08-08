@@ -1,11 +1,12 @@
 import { enrichBookDescription } from "./api.js";
+import{saveBook} from "./storage.js";
 
 const bookDetailsModal = document.getElementById("bookDetails");
 const modalCover = document.getElementById("modal-cover");
 const modalTitle = document.getElementById("modal-title");
 const modalAuthor = document.getElementById("modal-author");
 const modalDescription = document.getElementById("modal-description");
-const modalPageCount = document.getElementById("modal-description");
+const modalPageCount = document.getElementById("modal-pagecount");
 const modalAddBtn = document.getElementById("modal-add-btn");
 const modalCloseBtn = document.getElementById("modal-close-btn");
 
@@ -68,9 +69,7 @@ modalCloseBtn.addEventListener("click", () => {
 });
 
 modalAddBtn.addEventListener("click", () => {
-  // storage.js doesn't exist yet — this is a placeholder for now.
-  // Once it does, this will call something like:
-  // addBookToLibrary(currentBook);
+  const savedBook = saveBook(currentBook);
 
   modalAddBtn.textContent = "Added ✓";
   modalAddBtn.disabled = true;
